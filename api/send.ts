@@ -20,8 +20,8 @@ export default async function handler(req: any, res: any) {
         'Authorization': `Bearer ${process.env.VITE_RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'SMRG Consulting <onboarding@resend.dev>',
-        to: ['nycformassist@gmail.com'],
+        from: 'SMRG Consulting <support@smrgconsulting.com>',
+        to: ['support@smrgconsulting.com'],
         subject: `Live Demo Request — ${system} — ${organization}`,
         html: `
           <h2 style="color:#0a0e1a;font-family:sans-serif;">New Live Demo Request</h2>
