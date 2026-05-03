@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const GOLD = "#c9a84c";
-const GOLD_LIGHT = "#e8c97a";
 const NAVY = "#0a0e1a";
 const NAVY2 = "#0f1524";
 const NAVY3 = "#161d30";
@@ -49,10 +48,8 @@ const US_STATES = [
 ];
 
 function NavBar() {
-  const [open, setOpen] = useState(false);
   const scroll = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setOpen(false);
   };
   return (
     <nav style={{
