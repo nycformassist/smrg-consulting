@@ -17,7 +17,7 @@ export default async function handler(req: any, res: any) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.VITE_RESEND_API_KEY}`,
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
         from: 'SMRG Consulting <support@smrgconsulting.com>',
