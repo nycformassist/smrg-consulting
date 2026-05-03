@@ -1,6 +1,4 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
-
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -26,19 +24,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         to: ['nycformassist@gmail.com'],
         subject: `Live Demo Request — ${system} — ${organization}`,
         html: `
-          <h2 style="color:#0a0e1a;">New Live Demo Request</h2>
+          <h2 style="color:#0a0e1a;font-family:sans-serif;">New Live Demo Request</h2>
           <table style="border-collapse:collapse;width:100%;font-family:sans-serif;font-size:14px;">
-            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">System</td><td style="padding:8px;border:1px solid #ddd;">${system}</td></tr>
-            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Name</td><td style="padding:8px;border:1px solid #ddd;">${name}</td></tr>
-            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Email</td><td style="padding:8px;border:1px solid #ddd;">${email}</td></tr>
-            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Phone</td><td style="padding:8px;border:1px solid #ddd;">${phone || '—'}</td></tr>
-            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Organization</td><td style="padding:8px;border:1px solid #ddd;">${organization}</td></tr>
-            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Organization Type</td><td style="padding:8px;border:1px solid #ddd;">${orgType || '—'}</td></tr>
-            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Organization Size</td><td style="padding:8px;border:1px solid #ddd;">${orgSize || '—'}</td></tr>
-            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">State</td><td style="padding:8px;border:1px solid #ddd;">${state || '—'}</td></tr>
-            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Firm</td><td style="padding:8px;border:1px solid #ddd;">${firm || '—'}</td></tr>
-            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Law Practice Size</td><td style="padding:8px;border:1px solid #ddd;">${practiceSize || '—'}</td></tr>
-            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Message</td><td style="padding:8px;border:1px solid #ddd;">${message || '—'}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9;">System</td><td style="padding:8px;border:1px solid #ddd;">${system}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9;">Name</td><td style="padding:8px;border:1px solid #ddd;">${name}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9;">Email</td><td style="padding:8px;border:1px solid #ddd;">${email}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9;">Phone</td><td style="padding:8px;border:1px solid #ddd;">${phone || '—'}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9;">Organization</td><td style="padding:8px;border:1px solid #ddd;">${organization}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9;">Organization Type</td><td style="padding:8px;border:1px solid #ddd;">${orgType || '—'}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9;">Organization Size</td><td style="padding:8px;border:1px solid #ddd;">${orgSize || '—'}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9;">State</td><td style="padding:8px;border:1px solid #ddd;">${state || '—'}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9;">Firm</td><td style="padding:8px;border:1px solid #ddd;">${firm || '—'}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9;">Law Practice Size</td><td style="padding:8px;border:1px solid #ddd;">${practiceSize || '—'}</td></tr>
+            <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;background:#f9f9f9;">Message</td><td style="padding:8px;border:1px solid #ddd;">${message || '—'}</td></tr>
           </table>
         `,
       }),
