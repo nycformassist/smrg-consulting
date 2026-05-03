@@ -1,3 +1,4 @@
+// v2
 import { useState } from "react";
 
 const GOLD = "#c9a84c";
