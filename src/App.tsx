@@ -527,33 +527,10 @@ function BookingSection() {
     if (!form.name || !form.email || !form.system || !form.organization) return;
     setStatus("sending");
     try {
-      const res = await fetch("https://api.resend.com/emails", {
+      const res = await fetch("/api/send", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${(import.meta as any).env.VITE_RESEND_API_KEY}`,
-        },
-        body: JSON.stringify({
-          from: "SMRG Consulting <onboarding@resend.dev>",
-          to: ["nycformassist@gmail.com"],
-          subject: `Live Demo Request — ${form.system} — ${form.organization}`,
-          html: `
-            <h2>New Live Demo Request</h2>
-            <table>
-              <tr><td><strong>System:</strong></td><td>${form.system}</td></tr>
-              <tr><td><strong>Name:</strong></td><td>${form.name}</td></tr>
-              <tr><td><strong>Email:</strong></td><td>${form.email}</td></tr>
-              <tr><td><strong>Phone:</strong></td><td>${form.phone}</td></tr>
-              <tr><td><strong>Organization:</strong></td><td>${form.organization}</td></tr>
-              <tr><td><strong>Organization Type:</strong></td><td>${form.orgType}</td></tr>
-              <tr><td><strong>Organization Size:</strong></td><td>${form.orgSize}</td></tr>
-              <tr><td><strong>State:</strong></td><td>${form.state}</td></tr>
-              <tr><td><strong>Firm:</strong></td><td>${form.firm}</td></tr>
-              <tr><td><strong>Law Practice Size:</strong></td><td>${form.practiceSize}</td></tr>
-              <tr><td><strong>Message:</strong></td><td>${form.message}</td></tr>
-            </table>
-          `,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
       });
       if (res.ok) setStatus("sent");
       else setStatus("error");
