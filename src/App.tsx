@@ -61,12 +61,7 @@ function NavBar() {
       padding: "0 2rem", height: "64px",
     }}>
       <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => scroll("hero")}>
-        <div style={{
-          width: "32px", height: "32px", border: `1.5px solid ${GOLD}`,
-          display: "flex", alignItems: "center", justifyContent: "center",
-        }}>
-          <span style={{ color: GOLD, fontFamily: "'Cormorant Garamond', serif", fontSize: "14px", fontWeight: 600, letterSpacing: "0.05em" }}>SM</span>
-        </div>
+        <img src="/aniubis_seal_logo-192x192.png" alt="SMRG Consulting Logo" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }} />
         <span style={{ color: "#fff", fontFamily: "'Cormorant Garamond', serif", fontSize: "17px", letterSpacing: "0.12em", fontWeight: 500 }}>SMRG CONSULTING</span>
       </div>
       <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
@@ -788,9 +783,7 @@ function Footer() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "2rem", marginBottom: "2rem" }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "1rem" }}>
-              <div style={{ width: "28px", height: "28px", border: `1px solid ${GOLD}`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ color: GOLD, fontFamily: "'Cormorant Garamond', serif", fontSize: "12px", fontWeight: 600 }}>SM</span>
-              </div>
+              <img src="/aniubis_seal_logo-192x192.png" alt="SMRG Consulting Logo" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }} />
               <span style={{ color: "#fff", fontFamily: "'Cormorant Garamond', serif", fontSize: "15px", letterSpacing: "0.12em" }}>SMRG CONSULTING</span>
             </div>
             <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "rgba(255,255,255,0.35)", maxWidth: "380px", lineHeight: 1.7, margin: 0 }}>
