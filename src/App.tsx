@@ -728,6 +728,56 @@ function BookingSection() {
   );
 }
 
+
+function FAQSection() {
+  const [open, setOpen] = useState<number | null>(null);
+  const faqs = [
+    ["What is SMRG Consulting?", "SMRG Consulting develops and deploys structured intake systems — IRU and LIRU — for high-volume immigration and legal service environments. These are fixed, standardized systems, not custom-built software per organization."],
+    ["What is IRU?", "IRU (Immigration Readiness Utility) structures frontline intake for nonprofits, volunteer intake teams, and community-based immigration support networks. It captures intake information consistently, identifies readiness signals, and reduces fragmentation across volunteers."],
+    ["What is LIRU?", "LIRU (Legal Intake Readiness Utility) standardizes legal intake before attorney review for immigration attorneys, legal aid clinics, and law firm intake teams. It reduces incomplete submissions and improves case readiness."],
+    ["Is SMRG Consulting a law firm?", "No. SMRG Consulting is not a law firm and does not provide legal advice or legal representation. We provide structured intake systems and workflow tools for immigration service organizations and legal intake teams."],
+    ["Can IRU or LIRU be customized for my organization?", "No. IRU and LIRU are intentionally standardized systems. We do not rebuild or customize workflows per client. Organizations adopt the system as deployed — ensuring faster deployment, lower overhead, and consistent intake quality."],
+    ["What happens during a live demo?", "A live demo is a structured walkthrough of IRU or LIRU mapped to your organization's real intake process. It is not a recorded video or sales presentation — it is a fit and workflow evaluation to determine deployment readiness."],
+    ["Who is IRU designed for?", "IRU is designed for nonprofit intake teams, volunteer coordination systems, and community immigration support organizations that process intake at scale daily."],
+    ["Who is LIRU designed for?", "LIRU is designed for immigration attorneys, legal intake departments, and legal aid organizations that need to standardize client intake before attorney review."],
+  ];
+  return (
+    <section id="faq" style={{ background: "#0a0e1a", padding: "100px 2rem", borderTop: "1px solid rgba(201,168,76,0.18)" }}>
+      <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "1.5rem" }}>
+          <div style={{ width: "24px", height: "1px", background: "#c9a84c" }} />
+          <span style={{ color: "#c9a84c", fontFamily: "'DM Sans', sans-serif", fontSize: "11px", letterSpacing: "0.2em", fontWeight: 500, textTransform: "uppercase" as const }}>FAQ</span>
+        </div>
+        <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 400, color: "#fff", margin: "0 0 3rem", lineHeight: 1.2 }}>
+          Frequently asked <span style={{ color: "#c9a84c" }}>questions.</span>
+        </h2>
+        <div>
+          {faqs.map(([q, a], i) => (
+            <div key={i} style={{ borderTop: "1px solid rgba(201,168,76,0.18)", padding: "0" }}>
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                style={{
+                  width: "100%", textAlign: "left", background: "transparent", border: "none",
+                  padding: "1.5rem 0", cursor: "pointer",
+                  display: "flex", justifyContent: "space-between", alignItems: "center", gap: "1rem",
+                }}>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "15px", fontWeight: 500, color: "#fff", lineHeight: 1.4 }}>{q}</span>
+                <span style={{ color: "#c9a84c", fontSize: "1.5rem", flexShrink: 0, lineHeight: 1, transform: open === i ? "rotate(45deg)" : "none", transition: "transform 0.2s" }}>+</span>
+              </button>
+              {open === i && (
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, margin: "0 0 1.5rem", maxWidth: "720px" }}>
+                  {a}
+                </p>
+              )}
+            </div>
+          ))}
+          <div style={{ borderTop: "1px solid rgba(201,168,76,0.18)" }} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer style={{
@@ -788,7 +838,9 @@ export default function App() {
       <WhyLive />
       <WhoThisIsFor />
       <BookingSection />
+      <FAQSection />
       <Footer />
     </div>
   );
 }
+
